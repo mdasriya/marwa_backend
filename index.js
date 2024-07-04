@@ -6,6 +6,7 @@ const { MachineRouter } = require("./routes/machine.route")
 const { ReadinRouter } = require("./routes/reading.route")
 const { UserRouter } = require("./routes/user.route")
 const { MachineLayoutRouter } = require("./routes/machineLayout.route")
+const { MWMRRouter } = require("./routes/MWMR.route")
 require("dotenv").config()
 
 const app = express()
@@ -16,6 +17,7 @@ app.use("/user",UserRouter)
 app.use("/tank", TankRouter)
 app.use("/machine",MachineRouter)
 app.use("/machinelayout",MachineLayoutRouter)
+app.use("/mwmr",MWMRRouter)
 app.use("/reading",ReadinRouter)
 
 
