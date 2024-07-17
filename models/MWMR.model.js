@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 const MWMRSchema = mongoose.Schema(
     {
-        machineAndSerial: {
+        machineAndSerial: {      
             type: String,
             required: true,
           

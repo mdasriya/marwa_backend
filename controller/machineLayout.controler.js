@@ -40,7 +40,7 @@ const showMachineLayout = async (req, res) => {
         res.status(201).json({
             message: "See all machine",
             success: true,
-            machine,
+            data:machine,
         })
     } catch (error) {
         console.log(error.message)
@@ -52,13 +52,22 @@ const showMachineLayout = async (req, res) => {
 const updateMachineLayout = async (req, res) => {
     const { machineId } = req.params;
     try {
-        await MachineLayout.findByIdAndUpdate({ _id: machineId }, req.body)
-        res.status(200).json({
-            message: "machine updated successfully ",
-            data: req.body,
-            success: true,
-
-        })
+        if (await MachineLayout.findByIdAndUpdate({ _id: machineId }, req.body)) {
+            res.status(200).json({
+                message: "machine updated successfully ",
+                data: req.body,
+                success: true,
+    
+            })
+    
+        } else {
+            res.status(401).json({
+                message: "machine does not exist ",
+                success: false,
+    
+            })
+    
+        }
 
     } catch (error) {
         console.log(error.message)

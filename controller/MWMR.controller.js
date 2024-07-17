@@ -8,7 +8,7 @@ const MWMRinsert = async (req, res) => {
             machineAndSerial,
             side,
             nozzleNo,
-            nozzleAndProduct,
+            nozzleAndProduct,   
             tankNo,
             openingMeterReading,
         })
@@ -35,7 +35,7 @@ const showMWMR = async (req, res) => {
         } else {
             return res.status(401).json({
                 message: " Nothing to see in the database",
-                success: false,
+                success: false,     
             })
         }
         

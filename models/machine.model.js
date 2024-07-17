@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const machineSchema = mongoose.Schema(
     {
         machineNo: {
-            type: String,
+            type: Number,
             required: true,
           
         },
@@ -28,8 +28,9 @@ const machineSchema = mongoose.Schema(
             required: true, 
         },
         sides: {
-            type: Number,
+            type: Array,
             required: true,
+            default:[],
         },
         nozzleLayout: {
             type: Array,
@@ -37,15 +38,16 @@ const machineSchema = mongoose.Schema(
             default: [],
         },
     },
-    {
-        versionKey: false,
-    },
+    
     {
         timestamps: true,
-    }
+    },
+    // {
+    //     versionKey: false,
+    // }
 );
 
-const Machine = mongoose.model("Machine",machineSchema)
+const Machine= mongoose.model("Machine",machineSchema)
 
 module.exports = {
     Machine

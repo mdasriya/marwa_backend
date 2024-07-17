@@ -1,19 +1,20 @@
-const { Machine } = require("../models/machine.model");
+ const { Machine } = require("../models/machine.model");
 
 // here i am creating machine
 const createMachine = async (req, res) => {
     try {
 
-        const { machineNo, make, serialNo, connectedTank, product, nozzlesInMPD, sides, nozzleLayout } = req.body;
+        const { machineNo, make, serialNo, connectedTank, product, nozzlesInMPD, sides,  nozzleLayout } = req.body;
+        
 
-        const machine = await Machine.findOne({ machineNo })
+        // const machine = await Machine.findOne({ machineNo })
 
-        if (machine) {
-            return res.status(401).json({
-                message: "This machine is already exist in the database",
-                success: false,
-            })
-        }
+        // if (machine) {
+        //     return res.status(401).json({
+        //         message: "This machine is already exist in the database",
+        //         success: false,
+        //     })
+        // }
         await Machine.create({
             machineNo,
             make,
